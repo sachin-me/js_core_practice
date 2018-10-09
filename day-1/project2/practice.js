@@ -87,3 +87,26 @@ function message(a, b) {
 }
 var warn = message(city, country);
 alert(warn);
+
+
+
+let age = null;
+console.log(age);
+
+
+//14
+//Show a greeting message based on time
+function greeting(time) {
+    if(time < 12) {
+        return "GOOD MORNING";
+    }else if(time == 12 || time < 15) {
+        return "Good Afternoon";
+    }else if(time == 15 || time < 20) {
+        return "Good Evening";
+    }else if(time > 20 && time <= 24){
+        return "Good Night";
+    }else {
+        alert ("Please input valid time");
+    }
+}
+console.log(greeting(10));
