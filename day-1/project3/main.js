@@ -13,7 +13,7 @@ var amount = 0;
 
 var purchaseAmount = 0;
 
-for(amount = 0; amount <= bank_balance;) {
+while(amount <= bank_balance) {
     amount += PHONE_PRICE;
     if(amount < SPENDING_THRESHOLD) {
         amount += ACCESSORY_PRICE;
@@ -47,16 +47,16 @@ function formatAmount(amount) {
 // Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.
 
 for(var i = 1; i < 100; i++) {
-    if(i % 3 == 0) {
-        console.log("Fizz");
+    if((i % 3 == 0) && (i % 5 == 0)) {
+        console.log("FizzBuzz");
     }
     else if(i % 5 == 0) {
         console.log("Buzz");
     }
-    else if((i % 3 == 0) && (i % 5 == 0)) {
-        console.log("FizzBuzz");
+    else if(i % 3 == 0) {
+        console.log("Fizz");
     }
     else {
-        return i;
+        console.log(i);
     }
 }
