@@ -2,7 +2,7 @@
 
 var password = prompt('Enter your password');
 var confirmPassword = prompt('confirm password');
-if(password == confirmPassword) {
+if (password == confirmPassword) {
     alert("Password Validated");
 } else {
     alert("Password don't match");
@@ -62,7 +62,7 @@ operation(1, 2);
 
 // Function to display a number if user enters negative number
 function displayNum(num) {
-    if(num < 0) {
+    if (num < 0) {
         console.log(num);
     } else {
         console.log('Please enter negative number');
@@ -74,8 +74,8 @@ displayNum(-1);
 // Find the sum of all the multiples of 3 or 5 below 1000.
 
 var sum = 0;
-for(var i = 1; i < 1000; i++) {
-    if(i % 3 == 0 || i % 5 == 0) {
+for (var i = 1; i < 1000; i++) {
+    if (i % 3 == 0 || i % 5 == 0) {
         sum += i;
     }
 }
@@ -85,7 +85,7 @@ console.log(sum);
 
 var displayNumber = prompt('Enter any number');
 function displayNum(num) {
-    if(num < 0) {
+    if (num < 0) {
         return num;
     } else {
         return "None";
@@ -98,7 +98,7 @@ alert(alertNum);
 
 var inputNum = prompt('Enter any number');
 function displayNum(num) {
-    if(num % 2 == 0) {
+    if (num % 2 == 0) {
         return `${num} is even`;
     } else {
         return `${num} is odd`;
@@ -111,11 +111,11 @@ alert(alertNum);
 // Function to take two input and show the relation using =, > or < i.e (21,45) 21 < 45, (23,12) 23 > 12
 
 function compare(a, b) {
-    if(a < b) {
+    if (a < b) {
         return `${a} < ${b}`;
-    } else if(a == b) {
+    } else if (a == b) {
         return `${a} = ${b}`;
-    } else if(a > b) {
+    } else if (a > b) {
         return `${a} > ${b}`;
     } else {
         return `Enter only number`;
@@ -127,7 +127,7 @@ compare(2, 3);
 
 var inputChar = prompt("Enter Character");
 function checkChar(char) {
-    if(char == "a" || char == "e" || char == "i" || char == "o" || char == "u") {
+    if (char == "a" || char == "e" || char == "i" || char == "o" || char == "u") {
         return `${char} is vowel`;
     } else {
         return `${char} is consonant`;
@@ -139,9 +139,9 @@ alert(printChar);
 // Function to Find the Largest Number Among Three Numbers
 
 function largestNumber(a, b, c) {
-    if(a > b && a > c) {
+    if (a > b && a > c) {
         return a;
-    } else if(b > a && b > c) {
+    } else if (b > a && b > c) {
         return b;
     } else {
         return c;
@@ -209,19 +209,19 @@ counter(10);    //PLEASE TRY AGAIN
 
 var marks = 90;
 
-if(marks > 90) {
+if (marks > 90) {
     console.log(`AA`);
-} else if(marks > 80 && marks <= 90) {
+} else if (marks > 80 && marks <= 90) {
     console.log(`AB`);
-} else if(marks > 70 && marks <= 80) {
+} else if (marks > 70 && marks <= 80) {
     console.log(`BB`);
-} else if(marks > 60 && marks <= 70) {
+} else if (marks > 60 && marks <= 70) {
     console.log(`BC`);
-} else if(marks > 50 && marks <= 60) {
+} else if (marks > 50 && marks <= 60) {
     console.log(`CC`);
-} else if(marks > 40 && marks <= 50) {
+} else if (marks > 40 && marks <= 50) {
     console.log(`CD`);
-} else if(marks > 30 && marks <= 40) {
+} else if (marks > 30 && marks <= 40) {
     console.log(`DD`);
 } else {
     console.log(`FF`);
@@ -231,7 +231,7 @@ if(marks > 90) {
 
 var inputNum = prompt('Enter any number');
 
-for(var i = 1; i <= 10; i++) {
+for (var i = 1; i <= 10; i++) {
     console.log(inputNum * i);
 }
 
@@ -240,7 +240,7 @@ for(var i = 1; i <= 10; i++) {
 var num = prompt('Enter any number');
 function factorial(number) {
     var total = 1;
-    for(var i = 1; i <= number; i++) {
+    for (var i = 1; i <= number; i++) {
         total = total * i;
     }
 	console.log(total);
@@ -287,11 +287,11 @@ var b = 1;
 var c;
 var sum = 0;
 
-while(b < 4000000) {
+while (b < 4000000) {
     c = a + b;
     a = b;
     b = c;
-    if(b % 2 == 0) {
+    if (b % 2 == 0) {
         sum += b;
     }
 }

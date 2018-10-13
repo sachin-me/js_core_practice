@@ -13,9 +13,9 @@ var amount = 0;
 
 var purchaseAmount = 0;
 
-while(amount <= bank_balance) {
+while (amount <= bank_balance) {
     amount += PHONE_PRICE;
-    if(amount < SPENDING_THRESHOLD) {
+    if (amount < SPENDING_THRESHOLD) {
         amount += ACCESSORY_PRICE;
     }
     console.log(amount);
@@ -28,7 +28,7 @@ console.log(purchaseAmount);
 
 //Finally, check the amount against your bank account balance to see if you can afford it or not.
 
-if(purchaseAmount > bank_balance) {
+if (purchaseAmount > bank_balance) {
     console.log("Your balance is low. \nThe amout is " + formatAmount(purchaseAmount));
 }
 
@@ -46,17 +46,14 @@ function formatAmount(amount) {
 
 // Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.
 
-for(var i = 1; i < 100; i++) {
-    if((i % 3 == 0) && (i % 5 == 0)) {
+for (var i = 1; i < 100; i++) {
+    if ( (i % 3 == 0) && (i % 5 == 0) ) {
         console.log("FizzBuzz");
-    }
-    else if(i % 5 == 0) {
+    } else if(i % 5 == 0) {
         console.log("Buzz");
-    }
-    else if(i % 3 == 0) {
+    } else if(i % 3 == 0) {
         console.log("Fizz");
-    }
-    else {
+    } else {
         console.log(i);
     }
 }

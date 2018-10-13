@@ -8,7 +8,7 @@ var name = "Mark"   //"Mark is a string"
 function name1(name) {
     return name + " is a variable";
 }
-console.log(name1(name));
+console.log( name1(name) );
 //name is a variable
 
 //3
@@ -53,7 +53,7 @@ console.log(name1(name));
 //8
 // var user1 = prompt('Enter your name')
 // function friend(user) {
-//     if(user == "Sam") {
+//     if (user == "Sam") {
 //         return ("Hello " + user + ", How are you doing?");
 //     }
 // }
@@ -69,7 +69,7 @@ console.log(name1(name));
 
 //11
 var age = 26;   //Age of the owner
-var age1 = age/7;
+var age1 = age / 7;
 console.log(age1);
 
 //12
@@ -97,16 +97,16 @@ console.log(age);
 //14
 //Show a greeting message based on time
 function greeting(time) {
-    if(time < 12) {
+    if (time < 12) {
         return "GOOD MORNING";
-    }else if(time == 12 || time < 15) {
+    } else if (time == 12 || time < 15) {
         return "Good Afternoon";
-    }else if(time == 15 || time < 20) {
+    } else if (time == 15 || time < 20) {
         return "Good Evening";
-    }else if(time > 20 && time <= 24){
+    } else if (time > 20 && time <= 24) {
         return "Good Night";
-    }else {
-        alert ("Please input valid time");
+    } else {
+        alert("Please input valid time");
     }
 }
-console.log(greeting(10));
+console.log( greeting(10) );
