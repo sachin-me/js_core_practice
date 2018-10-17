@@ -91,11 +91,10 @@ console.log(capitalizeFirstLetter('hello Batman from India'));
 function convertCases(str) {
     let cases = str.split('');
     for (let i = 0; i < cases.length; i++) {
-        if (cases[i].toLowerCase()) {
-           cases[i] = cases[i].toUpperCase();
-           if ( cases[i].toUpperCase() ) {
+        if ( cases[i] == cases[i].toUpperCase() ) {
             cases[i] = cases[i].toLowerCase();
-            }
+        } else if ( cases[i] == cases[i].toLowerCase() ) {
+            cases[i] = cases[i].toUpperCase();
         }
     }
     return cases.join('');
@@ -120,11 +119,7 @@ console.log(convertCases('Learning about js'));
 // Output -> 'Learning About Js'
 
 function convertCases(str) {
-    let cases = str.split(' ');
-    for (let i = 0; i < cases.length; i++) {
-        cases[i] = cases[i].charAt(0).toUpperCase() + cases[i].substring(1);
-    }
-    return cases.join(' ');
+    return str.replace(/([A-Z]+)/g, " $1")
 }
 console.log(convertCases('LearningAboutJs'));
 
@@ -142,14 +137,24 @@ console.log(concatenatedString('Hello!', 4))
 // Output -> (String) -> 1st or 2nd
 
 var humanizedNumber = (number) => {
-    if (number == 1) {
+    number = String(number);
+    number = number.split('');
+    if ( (number[number.length - 1] == "1" ) ) {
+        number = number.join('');
+        number = Number(number);
         return `${number}st`;
-    } else if (number == 2) {
-        return `${number}nd`
-    } else if (number == 3) {
+    } else if ( (number[number.length - 1]) == "2" ) {
+        number = number.join('');
+        number = Number(number);
+        return `${number}nd`;
+    } else if ( (number[number.length - 1]) == "3" ) {
+        number = number.join('');
+        number = Number(number);
         return `${number}rd`;
-    } else if (number == 4 || number == 5 || number == 6 || number == 7 || number == 8 || number == 9 || number == 10) {
+    } else {
+        number = number.join('');
+        number = Number(number);
         return `${number}th`;
     }
 }
-console.log(humanizedNumber(1));
+console.log(humanizedNumber(34));
