@@ -4,7 +4,7 @@
 
 function chopString(string, number) {
    let numChunks = Math.ceil(string.length / number);
-   let splitted =  new Array(numChunks);
+   let splitted =  Array(numChunks);
    for (let i = 0, j = 0; i < numChunks; i++, j += number) {
         splitted[i] = string.substr(j, number);
    }
