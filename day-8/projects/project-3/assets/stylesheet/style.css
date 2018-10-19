@@ -1,0 +1,44 @@
+body {
+    background: url(https://fedoramagazine.org/wp-content/uploads/2016/10/skamath-HD-Wallpapers1.jpg);
+    background-size: cover;
+}
+.container {
+    position: relative;
+}
+.clock {
+    height: 300px;
+    width: 300px;
+    border: 10px solid rgb(238, 215, 223);
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    background: -webkit-linear-gradient(left, #80e2e5, #1a82f7);
+}
+.niddle {
+    border: 2px solid #e659a0;
+    width: 130px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: rotate(-90deg);
+}
+.second {
+    -webkit-transform-origin: left;
+    border: 1px solid #e659a0;
+}
+.minute {
+    -webkit-transform-origin: left;
+    width: 100px;
+    border: 1.5px solid #e659a0;
+}
+.hour {
+    -webkit-transform-origin: left;
+    width: 80px;
+    border-color: #f71a94;
+}
+
+
