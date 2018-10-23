@@ -19,35 +19,40 @@ function displayTodo(){
     var checkBox = document.createElement('input');
     if (text.value) {
         listItem.forEach((elem, i) => {
-            li.innerText = elem.name;
-            li.setAttribute('data-id', i);
-            li.style.fontSize = "23px";
-            li.style.textTransform = "capitalize";
-            list.appendChild(li);
-            checkBox.setAttribute('type', 'checkbox');
-            checkBox.setAttribute('data-id', i);
-            checkBox.setAttribute('checked', '');
-            checkBox.style.height = "20px";
-            checkBox.style.width = "20px";
-            checkBox.style.outline = "none";
-            li.prepend(checkBox);
-            var deleteBtn = document.createElement('button');
-            deleteBtn.innerText = "X";
-            deleteBtn.style.height = "30px";
-            deleteBtn.style.width = "30px";
-            deleteBtn.style.borderRadius = "50%";
-            deleteBtn.style.outline = "none";
-            deleteBtn.style.background = "transparent";
-            deleteBtn.style.color = "darkgrey";
-            deleteBtn.style.border = "2px solid darkgrey";
-            deleteBtn.style.cursor = "pointer";
-            li.appendChild(deleteBtn);
-            (deleteBtn.onclick = function(){
-                if (checkBox.checked) {
-                    this.parentNode.remove();
-                }
-            })
-            checkBox.checked = false;
+          li.innerText = elem.name;
+          li.setAttribute('data-id', i);
+          li.style.fontSize = "23px";
+          li.style.textTransform = "capitalize";
+          list.appendChild(li);
+          checkBox.setAttribute('type', 'checkbox');
+          checkBox.setAttribute('data-id', i);
+          checkBox.setAttribute('checked', '');
+          checkBox.style.height = "20px";
+          checkBox.style.width = "20px";
+          checkBox.style.outline = "none";
+          li.prepend(checkBox);
+          checkBox.checked = false;
+
+          // Delete button
+
+          var deleteBtn = document.createElement('button');
+          deleteBtn.innerText = "X";
+          deleteBtn.style.height = "30px";
+          deleteBtn.style.width = "30px";
+          deleteBtn.style.borderRadius = "50%";
+          deleteBtn.style.outline = "none";
+          deleteBtn.style.background = "transparent";
+          deleteBtn.style.color = "darkgrey";
+          deleteBtn.style.border = "2px solid darkgrey";
+          deleteBtn.style.cursor = "pointer";
+          li.appendChild(deleteBtn);
+          (deleteBtn.onclick = function() {
+              if (checkBox.checked) {
+                elem.done = true;
+                this.parentNode.remove();
+              }
+          })
+            
         })
         text.value = "";
     }
