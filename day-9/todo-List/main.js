@@ -3,7 +3,7 @@ let list = document.querySelector('.todo-list');
 
 // Add List
 
-let listItem = [];
+let listItem = JSON.parse(localStorage.getItem('todos')) || [];
 function addList() {
     let Obj = {
         name : "",
@@ -11,6 +11,7 @@ function addList() {
     }
     Obj.name = text.value;
     listItem.push(Obj);
+    localStorage.setItem('todos', JSON.stringify(listItem));
 }
 
 // Display List
@@ -37,14 +38,14 @@ function displayTodo(){
 
           var deleteBtn = document.createElement('button');
           deleteBtn.innerText = "X";
-          deleteBtn.style.height = "30px";
-          deleteBtn.style.width = "30px";
-          deleteBtn.style.borderRadius = "50%";
-          deleteBtn.style.outline = "none";
-          deleteBtn.style.background = "transparent";
-          deleteBtn.style.color = "darkgrey";
-          deleteBtn.style.border = "2px solid darkgrey";
-          deleteBtn.style.cursor = "pointer";
+        //   deleteBtn.style.height = "30px";
+        //   deleteBtn.style.width = "30px";
+        //   deleteBtn.style.borderRadius = "50%";
+        //   deleteBtn.style.outline = "none";
+        //   deleteBtn.style.background = "transparent";
+        //   deleteBtn.style.color = "darkgrey";
+        //   deleteBtn.style.border = "2px solid darkgrey";
+        //   deleteBtn.style.cursor = "pointer";
           li.appendChild(deleteBtn);
           (deleteBtn.onclick = function() {
               if (checkBox.checked) {
@@ -67,5 +68,6 @@ function eventListen(e) {
     }
 }
 
+displayTodo();
 
 text.addEventListener("keydown", eventListen);
