@@ -65,7 +65,7 @@ function recursiveMultiplier(arr, num) {
 // to return its contents in reverse
 
 function recursiveReverse(arr) {
-    var str = arr.join(' ');
+    var str = arr;
     if (str = "") return ' ';
     let reverseStr = (str.slice(1) + str[0]);
     recursiveReverse(reverseStr);

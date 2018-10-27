@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>todo-mvc</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>todo-mvc</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 <body>
-    <section class="wrapper">
-        <header>
-            <h1>todos</h1>
-        </header>
-        <div class="main">
-            <form action="" class="form-element">
-                <input type="text" placeholder="What needs to be done?">
-            </form>
-            <ul></ul>
+  <section class="main-wrapper">
+    <h1>todos</h1>
+    <section class="todolist">
+      <div class="input-container">
+        <form id="form">
+          <i> </i>
+          <input type="text" class="input-box" id="input" placeholder="What needs to be done?"/>
+        </form>
+      </div>  
+      <ul class="output-box" id="output">
+        <li class="list-item">
+          <input type="checkbox" class="check">
+          <span class="list-text"></span>
+          <button>+</button>
+          <button>X</button>
+        </li>
+      </ul>
+      <div class="base" id="base">
+        <span id="counter"></span>
+        <span class="baseBtn all">All</span>
+        <span class="baseBtn active">Active</span>
+        <span class="baseBtn complete">Complete</span>
+        <a class="baseBtn clrBtn" href="">Clear Complete</a>
         </div>
-        <footer>
-            <span class="feature">
-               <span id="number-counting"></span>
-            </span>
-            <span class="feature btn-feature all">
-                All
-            </span>
-            <span class="feature border btn-feature active">
-                Active
-            </span>
-            <span class="feature border btn-feature complete">
-                Completed
-            </span>
-            <span class="feature clear">
-                <a href="" class="clear-link">Clear Completed</a>
-            </span>
-        </footer>
+        
+      </div>
     </section>
+    
     <script src="app.js"></script>
-</body>
-</html>
+  </body>
+  </html>
