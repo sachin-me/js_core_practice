@@ -9,7 +9,9 @@ var htmlList = [];
 let countActive = 0;
 
 
-// ------------GENERAL FUNCTIONS-------
+// ======================
+//  GENERAL FUNCTIONS
+// ======================
 
 function updtStorage() {
   console.log('upd');
@@ -110,7 +112,10 @@ function rndrTodo(arr) {
 }
 
 
-// --------REMOVE FUNCTION(delet)--------
+// ============================
+// REMOVE FUNCTION(delete)
+// ============================
+
 function dltTodo(e) {
   console.log('dlt');
   if (e.target.classList.contains('delete')) {
@@ -119,7 +124,10 @@ function dltTodo(e) {
     updtStorage();  
   }
 }
-//======LIST BTN ACTION=====
+//  ============================
+//  LIST BTN ACTION
+//  ============================
+
 function btnAction(e) {
   console.log('btnAct');
   if (e.target.classList.contains('delete')) {
@@ -146,7 +154,9 @@ function btnAction(e) {
   }
   
 }
-//++++++++EDIT SECTION+++++++++
+//  ========================
+//  EDIT SECTION
+//  =======================
 function edit(index) {
   console.log('edit');
   var editstr = (

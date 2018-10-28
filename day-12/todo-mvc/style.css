@@ -98,3 +98,6 @@ h1 {
     margin: 0 15px;
     outline: none;
 }
+.list-item {
+    padding: 5px 0;
+}
