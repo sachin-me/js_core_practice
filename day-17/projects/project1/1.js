@@ -47,8 +47,19 @@ Object.setPrototypeOf(eatCarnivorous, animalShare);
 
 // Veg Example 1
 
-let rabbit = new createHerbivorous('Rabbit', 10);
-rabbit.jump = true;
+function Rabbit(name, age) {
+  let rabbit = CreateAnimal(name, age);
+  Object.setPrototypeOf(rabbit, rabbbitJump);
+  return rabbit;
+}
+
+let rabbbitJump = function() {
+  return `${this.name} jumps`;
+}
+
+Object.setPrototypeOf(rabbbitJump, eatHerbivorous);
+
+let rabbit = new Rabbit('Rabbit', 10);
 console.log(rabbit.eat());
 console.log(rabbit.move());
 console.log(rabbit.eatGrass());
@@ -66,8 +77,21 @@ donkey.work = `${donkey.name} carry weights`
 console.log(donkey);
 
 // Non-Veg Example 1
+
+function Dog(name, age) {
+  let dog = CreateAnimal(name, age);
+  Object.setPrototypeOf(dog, dogSpeak);
+  return dog;
+}
+
+let dogSpeak = function() {
+  return `${this.name} barks`;
+}
+
+Object.setPrototypeOf(dogSpeak, createCarnivorous);
+
+
 let dog = new createCarnivorous('Dog', 20);
-dog.speak = `${dog.name} barks`;
 console.log(dog.eatMeat());
 console.log(dog.move());
 console.log(dog);
