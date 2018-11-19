@@ -14,22 +14,26 @@ function CreateHerbivorous(name, age) {
   this.age = age;
 }
 
+CreateHerbivorous.prototype.__proto__ = CreateAnimal.prototype;
+
 CreateHerbivorous.prototype.eatGrass = function() {
   return `${this.name} eats grass`;
 }
 
-CreateHerbivorous.prototype.__proto__ = CreateAnimal.prototype;
+
 
 function CreateCarnivorous(name, age) {
   this.name = name;
   this.age = age;
 }
 
+CreateCarnivorous.prototype.__proto__ = CreateAnimal.prototype;
+
 CreateCarnivorous.prototype.eatMeat = function() {
   return `${this.name} eats meats`;
 }
 
-CreateCarnivorous.prototype.__proto__ = CreateAnimal.prototype;
+
 
 var donkey = new CreateHerbivorous('Donkey', 30);
 console.log(donkey.eatGrass());
