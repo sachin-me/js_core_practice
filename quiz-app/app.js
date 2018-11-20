@@ -2,6 +2,7 @@ let displayQuestion = document.querySelector('.question');
 let displayChoice = document.querySelector('.choice');
 let choiceWrapper = document.querySelector('.quiz-wrapper');
 let category = document.querySelector('.category-div');
+let questionStatus = document.querySelector('.question-status');
 
 class Question {
   constructor(text, choices, answer) {
@@ -30,6 +31,7 @@ class Quiz extends Question {
   displayQuestions() {
     if ((this.quizList).length == this.currentIndex) {
       displayQuestion.style.display = 'none';
+      questionStatus.style.display = 'none';
       return displayChoice.innerHTML = `
         <div class="score">Your score is: ${this.score}</div>
       `;
@@ -40,6 +42,9 @@ class Quiz extends Question {
       <button class="submit-btn" data-id="${0}">Submit</button>
       <li data-id="${1}">${this.quizList[this.currentIndex].choices[1]}</li>
       <button class="submit-btn" data-id="${1}">Submit</button>
+      `
+      questionStatus.innerText = `
+        Question ${this.currentIndex + 1} out of ${(this.quizList).length}
       `
     }
     JSON.parse(localStorage.getItem('list'));

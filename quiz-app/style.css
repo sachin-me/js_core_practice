@@ -54,3 +54,8 @@ li::before {
 .score {
   font-size: 30px;
 }
+.question-status {
+  font-family: 'Delius Swash Caps', cursive;
+  font-size: 20px;
+  color: crimson;
+}
