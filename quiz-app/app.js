@@ -1,7 +1,7 @@
 let displayQuestion = document.querySelector('.question');
 let displayChoice = document.querySelector('.choice');
-let nextQuestion = document.querySelector('.next-question');
-let previousQuestion = document.querySelector('.previous-question');
+let choiceWrapper = document.querySelector('.quiz-wrapper');
+let category = document.querySelector('.category-div');
 
 class Question {
 	constructor(text, choices, answer) {
@@ -19,13 +19,13 @@ class Quiz extends Question {
 	}
 	checkAnswer(e) {
 		let count = 0;
-			if (this.quizList[this.currentIndex].answer == this.quizList[this.currentIndex].choices[e.target.dataset.id]) {
-				count += this.score++;
-				console.log(`Your score is ${count}`);
-				return count;
-			} else if (this.quizList[this.currentIndex].answer != this.quizList[this.currentIndex].choices[e.target.dataset.id]) {
-				return `Sorry, Something's wrong!!!`;
-			}
+		if (this.quizList[this.currentIndex].answer == this.quizList[this.currentIndex].choices[e.target.dataset.id]) {
+			count += this.score++;
+			console.log(`Your score is ${count}`);
+			return count;
+		} else if (this.quizList[this.currentIndex].answer != this.quizList[this.currentIndex].choices[e.target.dataset.id]) {
+			return `Sorry, Something's wrong!!!`;
+		}
 	}
 	displayQuestions() {
 		if ((this.quizList).length == this.currentIndex) {
@@ -34,8 +34,8 @@ class Quiz extends Question {
 				<div>Your score is: ${this.score}</div>
 			`;
 		} else {
-			displayQuestion.innerText = `${this.quizList[this.currentIndex].text} ?`;
-			displayChoice.innerHTML = `
+			displayQuestion.innerHTML = `${this.quizList[this.currentIndex].text} ?`;
+			displayChoice.innerHTML	 = `
 			<li data-id="${0}">${this.quizList[this.currentIndex].choices[0]}</li>
 			<button class="submit-btn" data-id="${0}">Submit</button>
 			<li data-id="${1}">${this.quizList[this.currentIndex].choices[1]}</li>
@@ -43,6 +43,14 @@ class Quiz extends Question {
 			`
 		}
 		JSON.parse(localStorage.getItem('list'));
+	}
+	displayCategory() {
+		choiceWrapper.innerHTML = `
+			<div class="category-div">
+				<button class="gk" data-id="${0}">General Knowledge</button>
+				<button class="sc" data-id="${1}">Science</button>
+			</div>
+		`;
 	}
 }
 
@@ -55,24 +63,51 @@ var generalKnowledge = [
 ];
 
 var science = [
-	
+	new Question('Who is honored as Father of Modern Chemistry?', ['Antoine Lavoisier', 'RatherFord'], 'Antoine Lavoisier'),
+	new Question(" Which is the most abundant gas in the earth's atmosphere?", ['Nitrogen', 'Oxygen'], 'Nitrogen'),
+	new Question("Which gases cause acid rain?", ['Carbon dioxide, Chloro Floro Carbon' ,'Sulphur dioxide, Nitrogen oxides'], 'Sulphur dioxide, Nitrogen oxides'),
+	new Question("Which metal is used in the making of microchips?", ['Silicon', 'Iron'], 'Silicon'),
+	new Question("Which type of plastics can be recycled?", ['Thermoplastics', 'Thermosetting plastics'], 'Thermoplastics')
 ];
 
 localStorage.setItem('list', JSON.stringify(generalKnowledge));
-console.log(generalKnowledge);
+
 
 var q2 =  new Quiz(generalKnowledge ,'who is the pm of india', ['Narendra Modi', 'Rahul Gandhi'], 'Narendra Modi');
-q2.displayQuestions();
+q2.displayCategory();
+
 displayChoice.addEventListener("click", q2.checkAnswer.bind(q2), function(e) {
-	if (e.target.classList.contains('submit-btn')) {
-		q2.currentIndex++;
-		q2.checkAnswer();
+		if (e.target.classList.contains('submit-btn')) {
+			q2.displayQuestions();
+		}
+})
+
+var q3 = new Quiz(science, 'Who is honored as Father of Modern Chemistry?', ['Antoine Lavoisier', 'RatherFord'], 'Antoine Lavoisier');
+q3.displayCategory();
+
+displayChoice.addEventListener("click", q3.checkAnswer.bind(q3), function(e) {
+		if (e.target.classList.contains('submit-btn')) {
+			q3.displayQuestions();
+		}
+})
+
+choiceWrapper.addEventListener('click', function(e) {
+	if (e.target.dataset.id == 0) {
+		displayChoice.addEventListener('click', function(e) {
+			if (e.target.classList.contains('submit-btn')) {
+				q2.currentIndex++;
+				q2.displayQuestions();
+			}
+		})
 		q2.displayQuestions();
+	} if (e.target.dataset.id == 1) {
+		displayChoice.addEventListener('click', function(e) {
+			if (e.target.classList.contains('submit-btn')) {
+				q3.currentIndex++;
+				q3.displayQuestions();
+			}
+		})
+		q3.displayQuestions();
 	}
 })
-displayChoice.addEventListener('click', function(e) {
-	if (e.target.classList.contains('submit-btn')) {
-		q2.currentIndex++;
-		q2.displayQuestions();
-	}
-})
+
