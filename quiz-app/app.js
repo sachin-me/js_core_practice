@@ -10,14 +10,6 @@ class Question {
     this.choices = choices;
     this.answer = answer;
   }
-}
-class Quiz extends Question {
-  constructor(quizList, text, choices, answer) {
-    super(text, choices, answer);
-    this.score = 0;
-    this.currentIndex = 0;
-    this.quizList = quizList;
-  }
   checkAnswer(e) {
     let count = 0;
     if (this.quizList[this.currentIndex].answer == this.quizList[this.currentIndex].choices[e.target.dataset.id]) {
@@ -27,6 +19,14 @@ class Quiz extends Question {
     } else if (this.quizList[this.currentIndex].answer != this.quizList[this.currentIndex].choices[e.target.dataset.id]) {
       return `Sorry, Something's wrong!!!`;
     }
+  }
+}
+class Quiz extends Question {
+  constructor(quizList, text, choices, answer) {
+    super(text, choices, answer);
+    this.score = 0;
+    this.currentIndex = 0;
+    this.quizList = quizList;
   }
   displayQuestions() {
     if ((this.quizList).length == this.currentIndex) {
@@ -68,11 +68,11 @@ var generalKnowledge = [
 ];
 
 var science = [
-  new Question('Who is honored as Father of Modern Chemistry?', ['Antoine Lavoisier', 'RatherFord'], 'Antoine Lavoisier'),
-  new Question(" Which is the most abundant gas in the earth's atmosphere?", ['Nitrogen', 'Oxygen'], 'Nitrogen'),
-  new Question("Which gases cause acid rain?", ['Carbon dioxide, Chloro Floro Carbon' ,'Sulphur dioxide, Nitrogen oxides'], 'Sulphur dioxide, Nitrogen oxides'),
-  new Question("Which metal is used in the making of microchips?", ['Silicon', 'Iron'], 'Silicon'),
-  new Question("Which type of plastics can be recycled?", ['Thermoplastics', 'Thermosetting plastics'], 'Thermoplastics')
+  new Question('Who is honored as Father of Modern Chemistry', ['Antoine Lavoisier', 'RatherFord'], 'Antoine Lavoisier'),
+  new Question(" Which is the most abundant gas in the earth's atmosphere", ['Nitrogen', 'Oxygen'], 'Nitrogen'),
+  new Question("Which gases cause acid rain", ['Carbon dioxide, Chloro Floro Carbon' ,'Sulphur dioxide, Nitrogen oxides'], 'Sulphur dioxide, Nitrogen oxides'),
+  new Question("Which metal is used in the making of microchips", ['Silicon', 'Iron'], 'Silicon'),
+  new Question("Which type of plastics can be recycled", ['Thermoplastics', 'Thermosetting plastics'], 'Thermoplastics')
 ];
 
 localStorage.setItem('list', JSON.stringify(generalKnowledge));
@@ -81,20 +81,12 @@ localStorage.setItem('list', JSON.stringify(generalKnowledge));
 var q2 =  new Quiz(generalKnowledge ,'who is the pm of india', ['Narendra Modi', 'Rahul Gandhi'], 'Narendra Modi');
 q2.displayCategory();
 
-displayChoice.addEventListener("click", q2.checkAnswer.bind(q2), function(e) {
-    if (e.target.classList.contains('submit-btn')) {
-      q2.displayQuestions();
-    }
-})
+displayChoice.addEventListener("click", q2.checkAnswer.bind(q2))
 
-var q3 = new Quiz(science, 'Who is honored as Father of Modern Chemistry?', ['Antoine Lavoisier', 'RatherFord'], 'Antoine Lavoisier');
+var q3 = new Quiz(science, 'Who is honored as Father of Modern Chemistry', ['Antoine Lavoisier', 'RatherFord'], 'Antoine Lavoisier');
 q3.displayCategory();
 
-displayChoice.addEventListener("click", q3.checkAnswer.bind(q3), function(e) {
-    if (e.target.classList.contains('submit-btn')) {
-      q3.displayQuestions();
-    }
-})
+displayChoice.addEventListener("click", q3.checkAnswer.bind(q3))
 
 choiceWrapper.addEventListener('click', function(e) {
   if (e.target.dataset.id == 0) {
@@ -106,7 +98,7 @@ choiceWrapper.addEventListener('click', function(e) {
     })
     q2.displayQuestions();
   } if (e.target.dataset.id == 1) {
-    displayChoice.addEventListener('click', function(e) {
+    displayChoice.addEventListener("click", function(e) {
       if (e.target.classList.contains('submit-btn')) {
         q3.currentIndex++;
         q3.displayQuestions();
